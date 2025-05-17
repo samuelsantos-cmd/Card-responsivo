@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+:root {
+  /* Cores principais - Paleta moderna */
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --primary-dark: #4f46e5;
+  --primary-gradient: linear-gradient(135deg, #6366f1, #4f46e5);
+  --secondary: #ec4899;
+  --secondary-light: #f472b6;
+  --secondary-gradient: linear-gradient(135deg, #ec4899, #db2777);
+  --accent: #14b8a6;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --border: rgba(226, 232, 240, 0.8);
+
+  /* Espaçamentos refinados */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+
+  /* Bordas e sombras modernas */
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* Sombras com profundidade */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 8px 16px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 16px 24px rgba(15, 23, 42, 0.12), 0 4px 8px rgba(15, 23, 42, 0.05);
+  --shadow-inner: inset 0 2px 4px rgba(15, 23, 42, 0.05);
+
+  /* Transições suaves */
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px rgba(15, 23, 42, 0.1);
+  --glass-blur: 10px;
+}
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+  padding: var(--spacing-6);
+  background-image: 
+  radial-gradient(circle at 20% 30%, rgba(100,100,200,0.3) 0%, transparent 30%),radial-gradient(circle at 80% 70%, rgba(230,70,150,0.4) 0%, transparent 30%);
+  background-attachment: 100vh;
+  min-height: 100vh;
+
+}
+
+.container{
+  max-width: 1200PX;
+  margin: 0 auto;
+  padding: var(--spacing-4);
+  display: flex;
+  gap: var(--spacing-10);
+
+}
+.card{
+  background-color: var(--card-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  transition: var(--transition);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+.stat i {
+  color: var(--secondary);
+
+}
+.card-decoration{
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  opacity: 0.1;
+  top: -150px;
+  right: -150px;
+  z-index: 0;
+  transition: var(--transition-slow);
+
+}
+.card-image{
+  flex:   0 0 45%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+
+}
+
+.image-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1),
+  rgba(0,0,0,0.4));
+  z-index: 2;
+  transition: var(--transition-slow);
+
+}
+.card-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: var(--transition-slow);
+  filter: saturate(1.1);
+}
+
+.card-category{
+  position: absolute;
+  top: var(--spacing-4);
+  left: var(--spacing-4);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--primary-dark);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: var(--spacing-1)
+  var(--spacing-2);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  z-index: 3;
+  box-shadow: var(--shadow-sm);
+  }
+
+  .ph{
+    display: inline-block;
+    vertical-align: ;
+  }
+
+  .card-hearder {
+
+
+  }
+  .title-group{
+    display:flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+
+  }
+  .card-badge{
+    background-color: var(--primary-light);
+    color: white;
+    font-size: 0.75rem;
+    padding: var(--spacing-1) var(--spacing-2);
+    border-radius: var(--radius-full);
+    display: inline-block;
+    align-self: flex-start;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .card-title{
+    font-size:1.75rem;
+    font-weight: 700;
+    color:var(--foreground);
+    line-height: 1.2;
+    margin-top:var(--spacing-1);
+    letter-spacing: -0.02;
+  }
+  .card-favorite{
+  background: transparent;
+  border:none;
+  color: var(--muted-foreground);
+  width: 2rem;
+  height: 2rem;
+  cursor:pointer;
+
+  }
+
+  .card-favorite:hover{
+    color: var(--secondary);
+    background-color: rgba(200,);
+  }
+
